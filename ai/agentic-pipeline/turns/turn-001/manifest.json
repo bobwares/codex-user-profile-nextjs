@@ -1,0 +1,64 @@
+{
+  "turnId": 1,
+  "timestampUtc": "2025-10-04T01:34:07Z",
+  "actor": {
+    "initiator": "user",
+    "agent": "codex@1.0.0"
+  },
+  "task": {
+    "name": "implement-nextjs-pattern",
+    "inputs": [],
+    "parameters": {
+      "language": "typescript",
+      "framework": "nextjs-pages"
+    }
+  },
+  "artifacts": {
+    "changelog": "changelog.md",
+    "adr": "adr.md",
+    "diff": "diff.patch",
+    "logs": [],
+    "reports": []
+  },
+  "changes": {
+    "added": [
+      ".env.example",
+      ".eslintrc.json",
+      ".prettierignore",
+      ".prettierrc",
+      "ai/agentic-pipeline/turns/turn-001/adr.md",
+      "ai/agentic-pipeline/turns/turn-001/changelog.md",
+      "ai/agentic-pipeline/turns/turn-001/manifest.json",
+      "ai/agentic-pipeline/turns/turn-001/session_context_values.md",
+      "changelog.md",
+      "jest.config.ts",
+      "jest.setup.ts",
+      "next-env.d.ts",
+      "next.config.mjs",
+      "package.json",
+      "src",
+      "tests",
+      "tsconfig.json",
+      "turns/index.csv"
+    ],
+    "modified": [
+      ".gitignore",
+      "README.md"
+    ],
+    "deleted": []
+  },
+  "metrics": {
+    "filesChanged": 35,
+    "linesAdded": 800,
+    "linesDeleted": 122,
+    "testsPassed": 0,
+    "testsFailed": 0,
+    "coverageDeltaPct": 0
+  },
+  "validation": {
+    "adrPresent": true,
+    "changelogPresent": true,
+    "lintStatus": "not-run",
+    "testsStatus": "blocked"
+  }
+}
