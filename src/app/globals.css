@@ -1,0 +1,30 @@
+/*
+ * App: Customer Registration
+ * Package: src.app
+ * File: globals.css
+ * Version: 0.1.0
+ * Turns: 1
+ * Author: gpt-5-codex
+ * Date: 2025-10-04T19:22:27Z
+ * Exports: none
+ * Description: Global Tailwind and design tokens for the customer registration wizard.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+a {
+  @apply text-brand-600 hover:text-brand-700;
+}
+
+button {
+  @apply rounded-md bg-brand-500 px-4 py-2 font-medium text-white shadow-sm transition hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2;
+}

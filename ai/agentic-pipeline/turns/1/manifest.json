@@ -1,0 +1,87 @@
+{
+  "turnId": 1,
+  "timestampUtc": "2025-10-04T19:22:27Z",
+  "actor": {
+    "initiator": "user",
+    "agent": "gpt-5-codex"
+  },
+  "task": {
+    "name": "execute-turn-1",
+    "inputs": [
+      "ai/context/project_context.md"
+    ],
+    "parameters": {
+      "pattern": "nextjs-pages-router"
+    }
+  },
+  "artifacts": {
+    "changelog": "changelog.md",
+    "adr": "adr.md",
+    "projectFiles": "project-files.md"
+  },
+  "changes": {
+    "added": [
+      ".env.example",
+      ".eslintrc.js",
+      ".prettierrc.js",
+      "ai/agentic-pipeline/turns/1/adr.md",
+      "ai/agentic-pipeline/turns/1/changelog.md",
+      "ai/agentic-pipeline/turns/1/manifest.json",
+      "ai/agentic-pipeline/turns/1/session_context_values.md",
+      "changelog.md",
+      "jest.config.ts",
+      "next-env.d.ts",
+      "next.config.ts",
+      "package.json",
+      "postcss.config.js",
+      "project-files.md",
+      "src/app/(wizard)/register/account/page.tsx",
+      "src/app/(wizard)/register/actions.ts",
+      "src/app/(wizard)/register/address/page.tsx",
+      "src/app/(wizard)/register/details/page.tsx",
+      "src/app/(wizard)/register/layout.tsx",
+      "src/app/(wizard)/register/page.tsx",
+      "src/app/(wizard)/register/preferences/page.tsx",
+      "src/app/(wizard)/register/review/page.tsx",
+      "src/app/api/customers/route.ts",
+      "src/app/api/customers/verify-email/route.ts",
+      "src/app/api/customers/verify-phone/route.ts",
+      "src/app/api/geo/countries/route.ts",
+      "src/app/api/geo/regions/route.ts",
+      "src/app/api/health/route.ts",
+      "src/app/error.tsx",
+      "src/app/global-error.tsx",
+      "src/app/globals.css",
+      "src/app/layout.tsx",
+      "src/app/loading.tsx",
+      "src/app/not-found.tsx",
+      "src/app/page.tsx",
+      "src/app/verify/email/page.tsx",
+      "src/app/verify/phone/page.tsx",
+      "src/components/ui/ProductList.tsx",
+      "src/lib/providers/registration-progress-provider.tsx",
+      "src/services/catalog.ts",
+      "src/services/content.ts",
+      "src/services/customer.ts",
+      "src/services/geo.ts",
+      "tailwind.config.ts",
+      "tests/jest.setup.ts",
+      "tests/routes/account.test.tsx",
+      "tests/routes/address.test.tsx",
+      "tests/routes/details.test.tsx",
+      "tests/routes/home.test.tsx",
+      "tests/routes/preferences.test.tsx",
+      "tests/routes/register-intro.test.tsx",
+      "tests/routes/review.test.tsx",
+      "tests/routes/verify-email.test.tsx",
+      "tests/routes/verify-phone.test.tsx",
+      "tsconfig.json",
+      "turns/index.csv"
+    ],
+    "modified": [
+      ".gitignore",
+      "README.md"
+    ],
+    "deleted": []
+  }
+}
