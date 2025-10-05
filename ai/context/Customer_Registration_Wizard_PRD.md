@@ -55,7 +55,8 @@ Each step is a dedicated route under `/register/*` and uses Server Components fo
 - Actions: Next.
 
 6) Review & Submit
-- Summary of inputs; ability to edit previous steps.
+- Summary of all inputs readonly 
+- ability to edit previous steps.
 - On submit: create customer, send email verification, optionally send SMS code if phone provided and v1.1 enabled.
 - Confirmation page with registration reference and next steps.
 
