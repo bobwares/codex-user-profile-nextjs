@@ -1,0 +1,1775 @@
+diff --git a/.env.example b/.env.example
+new file mode 100644
+index 0000000..060a466
+--- /dev/null
++++ b/.env.example
+@@ -0,0 +1 @@
++API_BASE=http://localhost:3000
+diff --git a/.eslintrc.json b/.eslintrc.json
+new file mode 100644
+index 0000000..1ecb8f2
+--- /dev/null
++++ b/.eslintrc.json
+@@ -0,0 +1,9 @@
++{
++  "extends": ["next", "next/core-web-vitals"],
++  "parserOptions": {
++    "project": "./tsconfig.json"
++  },
++  "rules": {
++    "@next/next/no-img-element": "off"
++  }
++}
+diff --git a/.gitignore b/.gitignore
+index 92d65b8..7482877 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,122 +1,36 @@
+-### IntelliJ IDEA / JetBrains ###
+-.idea/
+-*.iml
+-out/
+-*.ipr
+-*.iws
++# dependencies
++/node_modules
++/.pnp
++.pnp.js
+ 
+-### VS Code ###
+-.vscode/
+-.history/
+-*.code-workspace
++# testing
++/coverage
+ 
+-### General ###
+-.DS_Store
+-Thumbs.db
+-*.log
+-*.tmp
+-*.swp
+-*.swo
+-*.bak
+-*.orig
+-*.rej
+-*.seed
+-*.pid
+-*.seed
+-*.gz
+-*.tgz
++# production
++/.next
++/out
+ 
+-### Node.js ###
+-node_modules/
++# misc
++.DS_Store
+ npm-debug.log*
+ yarn-debug.log*
+ yarn-error.log*
+ pnpm-debug.log*
+-.pnpm-debug.log*
+ .env
+ .env.local
+-.env.*.local
+-.cache/
+-dist/
+-coverage/
+-.next/
+-.nuxt/
+-out/
+-
+-### Python ###
+-__pycache__/
+-*.py[cod]
+-*.pyo
+-*.pyd
+-*.pyc
+-*.pdb
+-*.egg-info/
+-.eggs/
+-.mypy_cache/
+-.pytest_cache/
+-.tox/
+-.venv/
+-venv/
+-env/
+-ENV/
+-
+-### Java ###
+-target/
+-*.class
+-*.jar
+-*.war
+-*.ear
+-*.class
+-*.log
+-*.hprof
+-*.hs_err_pid*
+-
+-### OS / Editor Artifacts ###
+-*.bak
+-*.tmp
+-*.swp
+-*.swo
+-*~
+-*.lock
+-*.lnk
+-
+-### Package Managers ###
+-package-lock.json
+-yarn.lock
+-pnpm-lock.yaml
+-poetry.lock
+-Pipfile.lock
+-
+-### Build Systems ###
+-.gradle/
+-build/
+-.mvn/
+-.mvnw
+-.mvnw.cmd
+-
+-### Docker ###
+-*.pid
+-*.seed
+-.docker/
+-docker-compose.override.yml
+-
+-### Misc ###
+-# Logs and Reports
+-logs/
+-*.log
+-*.out
+-*.err
+-
+-# Coverage
+-lcov.info
+-
+-# IDE crash reports
+-hs_err_pid*
+-
+-# Backup files
+-*~
+-
+-# Ignore local testing/experiment files
+-tmp/
+-scratch/
+-sandbox/
++.env.development.local
++.env.test.local
++.env.production.local
++
++# editor directories and files
++.vscode/*
++!.vscode/settings.json
++!.vscode/tasks.json
++!.vscode/launch.json
++!.vscode/extensions.json
++.idea/
++*.suo
++*.ntvs*
++*.njsproj
++*.sln
++*.sw?
+diff --git a/.prettierignore b/.prettierignore
+new file mode 100644
+index 0000000..6a432ca
+--- /dev/null
++++ b/.prettierignore
+@@ -0,0 +1,4 @@
++.next
++out
++coverage
++node_modules
+diff --git a/.prettierrc b/.prettierrc
+new file mode 100644
+index 0000000..0ffa16b
+--- /dev/null
++++ b/.prettierrc
+@@ -0,0 +1,6 @@
++{
++  "singleQuote": true,
++  "semi": true,
++  "trailingComma": "all",
++  "printWidth": 90
++}
+diff --git a/AGENTS.md b/AGENTS.md
+new file mode 120000
+index 0000000..2ffdcf5
+--- /dev/null
++++ b/AGENTS.md
+@@ -0,0 +1 @@
++../codex-agentic-ai-pipeline/AGENTS.md
+\ No newline at end of file
+diff --git a/README.md b/README.md
+index 6dbbee4..95d9958 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,16 @@
+-# agentic-ai-pipeline-target-project-template
+-Template for new projects that will be created by the Agentic AI Pipeline Coding Agent.
++# Codex User Profile Next.js
++
++Scaffolded Next.js Pages Router application following the "Next.js Scalable (Pages Router)" pattern with containers, services, testing, and governance artifacts.
++
++## Getting Started
++
++```bash
++npm install
++npm run dev
++```
++
++## Testing
++
++```bash
++npm test
++```
+diff --git a/ai/agentic-pipeline/turns/turn-001/adr.md b/ai/agentic-pipeline/turns/turn-001/adr.md
+new file mode 100644
+index 0000000..056f042
+--- /dev/null
++++ b/ai/agentic-pipeline/turns/turn-001/adr.md
+@@ -0,0 +1,27 @@
++# Architecture Decision Record
++
++Adopt Next.js Scalable Pages Router Pattern
++
++**Turn**: 1
++
++**Status**: Proposed
++
++**Date**: 2025-10-04 - 01:34
++
++**Context**
++The project requires a scalable Next.js application scaffold aligned with the Pages Router architecture and governance rules provided by the Agentic AI Pipeline.
++
++**Options Considered**
++- Use an App Router-based scaffold.
++- Implement a minimal static site without structured layers.
++- Follow the documented Next.js Scalable (Pages Router) pattern.
++
++**Decision**
++Follow the Next.js Scalable (Pages Router) pattern to ensure compatibility with the pipeline guidance, including container/presentational separation, services layer, state management, and comprehensive tooling.
++
++**Result**
++Project files, directories, and configuration will mirror the prescribed pattern, including services, tests, and governance artifacts.
++
++**Consequences**
++- Pros: Predictable structure, maintainability, ready for future automation.
++- Cons: Higher upfront setup effort due to extensive scaffolding requirements.
+diff --git a/ai/agentic-pipeline/turns/turn-001/changelog.md b/ai/agentic-pipeline/turns/turn-001/changelog.md
+new file mode 100644
+index 0000000..7663614
+--- /dev/null
++++ b/ai/agentic-pipeline/turns/turn-001/changelog.md
+@@ -0,0 +1,10 @@
++# Turn: 1 – 2025-10-04 - 01:34 UTC
++
++## Prompt
++Implement the "Next.js Scalable (Pages Router)" application implementation pattern and scaffold the target project.
++
++#### Task
++Implement the Next.js Pages Router scaffold with services, containers, tests, and governance artifacts.
++
++#### Changes
++- Initialized scaffolding tasks and began implementing the project structure.
+diff --git a/ai/agentic-pipeline/turns/turn-001/diff.patch b/ai/agentic-pipeline/turns/turn-001/diff.patch
+new file mode 100644
+index 0000000..1139d72
+--- /dev/null
++++ b/ai/agentic-pipeline/turns/turn-001/diff.patch
+@@ -0,0 +1,154 @@
++diff --git a/.gitignore b/.gitignore
++index 92d65b8..b583d3d 100644
++--- a/.gitignore
+++++ b/.gitignore
++@@ -1,122 +1,6 @@
++-### IntelliJ IDEA / JetBrains ###
++-.idea/
++-*.iml
++-out/
++-*.ipr
++-*.iws
++-
++-### VS Code ###
++-.vscode/
++-.history/
++-*.code-workspace
++-
++-### General ###
+++node_modules
+++.next
+++out
+++coverage
++ .DS_Store
++-Thumbs.db
++-*.log
++-*.tmp
++-*.swp
++-*.swo
++-*.bak
++-*.orig
++-*.rej
++-*.seed
++-*.pid
++-*.seed
++-*.gz
++-*.tgz
++-
++-### Node.js ###
++-node_modules/
++-npm-debug.log*
++-yarn-debug.log*
++-yarn-error.log*
++-pnpm-debug.log*
++-.pnpm-debug.log*
++ .env
++-.env.local
++-.env.*.local
++-.cache/
++-dist/
++-coverage/
++-.next/
++-.nuxt/
++-out/
++-
++-### Python ###
++-__pycache__/
++-*.py[cod]
++-*.pyo
++-*.pyd
++-*.pyc
++-*.pdb
++-*.egg-info/
++-.eggs/
++-.mypy_cache/
++-.pytest_cache/
++-.tox/
++-.venv/
++-venv/
++-env/
++-ENV/
++-
++-### Java ###
++-target/
++-*.class
++-*.jar
++-*.war
++-*.ear
++-*.class
++-*.log
++-*.hprof
++-*.hs_err_pid*
++-
++-### OS / Editor Artifacts ###
++-*.bak
++-*.tmp
++-*.swp
++-*.swo
++-*~
++-*.lock
++-*.lnk
++-
++-### Package Managers ###
++-package-lock.json
++-yarn.lock
++-pnpm-lock.yaml
++-poetry.lock
++-Pipfile.lock
++-
++-### Build Systems ###
++-.gradle/
++-build/
++-.mvn/
++-.mvnw
++-.mvnw.cmd
++-
++-### Docker ###
++-*.pid
++-*.seed
++-.docker/
++-docker-compose.override.yml
++-
++-### Misc ###
++-# Logs and Reports
++-logs/
++-*.log
++-*.out
++-*.err
++-
++-# Coverage
++-lcov.info
++-
++-# IDE crash reports
++-hs_err_pid*
++-
++-# Backup files
++-*~
++-
++-# Ignore local testing/experiment files
++-tmp/
++-scratch/
++-sandbox/
++diff --git a/README.md b/README.md
++index 6dbbee4..95d9958 100644
++--- a/README.md
+++++ b/README.md
++@@ -1,2 +1,16 @@
++-# agentic-ai-pipeline-target-project-template
++-Template for new projects that will be created by the Agentic AI Pipeline Coding Agent.
+++# Codex User Profile Next.js
+++
+++Scaffolded Next.js Pages Router application following the "Next.js Scalable (Pages Router)" pattern with containers, services, testing, and governance artifacts.
+++
+++## Getting Started
+++
+++```bash
+++npm install
+++npm run dev
+++```
+++
+++## Testing
+++
+++```bash
+++npm test
+++```
+diff --git a/ai/agentic-pipeline/turns/turn-001/manifest.json b/ai/agentic-pipeline/turns/turn-001/manifest.json
+new file mode 100644
+index 0000000..cc0d5b0
+--- /dev/null
++++ b/ai/agentic-pipeline/turns/turn-001/manifest.json
+@@ -0,0 +1,64 @@
++{
++  "turnId": 1,
++  "timestampUtc": "2025-10-04T01:34:07Z",
++  "actor": {
++    "initiator": "user",
++    "agent": "codex@1.0.0"
++  },
++  "task": {
++    "name": "implement-nextjs-pattern",
++    "inputs": [],
++    "parameters": {
++      "language": "typescript",
++      "framework": "nextjs-pages"
++    }
++  },
++  "artifacts": {
++    "changelog": "changelog.md",
++    "adr": "adr.md",
++    "diff": "diff.patch",
++    "logs": [],
++    "reports": []
++  },
++  "changes": {
++    "added": [
++      ".env.example",
++      ".eslintrc.json",
++      ".prettierignore",
++      ".prettierrc",
++      "ai/agentic-pipeline/turns/turn-001/adr.md",
++      "ai/agentic-pipeline/turns/turn-001/changelog.md",
++      "ai/agentic-pipeline/turns/turn-001/manifest.json",
++      "ai/agentic-pipeline/turns/turn-001/session_context_values.md",
++      "changelog.md",
++      "jest.config.ts",
++      "jest.setup.ts",
++      "next-env.d.ts",
++      "next.config.mjs",
++      "package.json",
++      "src",
++      "tests",
++      "tsconfig.json",
++      "turns/index.csv"
++    ],
++    "modified": [
++      ".gitignore",
++      "README.md"
++    ],
++    "deleted": []
++  },
++  "metrics": {
++    "filesChanged": 35,
++    "linesAdded": 800,
++    "linesDeleted": 122,
++    "testsPassed": 0,
++    "testsFailed": 0,
++    "coverageDeltaPct": 0
++  },
++  "validation": {
++    "adrPresent": true,
++    "changelogPresent": true,
++    "lintStatus": "not-run",
++    "testsStatus": "blocked"
++  }
++}
+diff --git a/ai/agentic-pipeline/turns/turn-001/session_context_values.md b/ai/agentic-pipeline/turns/turn-001/session_context_values.md
+new file mode 100644
+index 0000000..1d3199e
+--- /dev/null
++++ b/ai/agentic-pipeline/turns/turn-001/session_context_values.md
+@@ -0,0 +1,5 @@
++# Session Context Values
++
++- turn_id: 1
++- project_context: ai/context
++- application_implementation_pattern: nextjs-scalable-pages-router
+diff --git a/changelog.md b/changelog.md
+new file mode 100644
+index 0000000..c767121
+--- /dev/null
++++ b/changelog.md
+@@ -0,0 +1,4 @@
++# Changelog
++
++## 0.1.0 - 2025-10-04
++- Initialize project scaffolding for Next.js Pages Router application pattern.
+diff --git a/jest.config.ts b/jest.config.ts
+new file mode 100644
+index 0000000..d089646
+--- /dev/null
++++ b/jest.config.ts
+@@ -0,0 +1,28 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: config
++ * File: jest.config.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: config
++ * Description: Jest configuration enabling React Testing Library for the Pages Router project.
++ */
++
++import type { Config } from 'jest';
++
++const config: Config = {
++  testEnvironment: 'jsdom',
++  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
++  moduleNameMapper: {
++    '^@/(.*)$': '<rootDir>/src/$1'
++  },
++  collectCoverageFrom: [
++    'src/**/*.{ts,tsx}',
++    '!src/pages/_app.tsx',
++    '!src/pages/_document.tsx'
++  ]
++};
++
++export default config;
+diff --git a/jest.setup.ts b/jest.setup.ts
+new file mode 100644
+index 0000000..01fbe8b
+--- /dev/null
++++ b/jest.setup.ts
+@@ -0,0 +1,13 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: config
++ * File: jest.setup.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: none
++ * Description: Jest setup file registering custom matchers for React Testing Library.
++ */
++
++import '@testing-library/jest-dom';
+diff --git a/next-env.d.ts b/next-env.d.ts
+new file mode 100644
+index 0000000..7e12977
+--- /dev/null
++++ b/next-env.d.ts
+@@ -0,0 +1,17 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: types
++ * File: next-env.d.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: none
++ * Description: Type definitions required by Next.js.
++ */
++
++/// <reference types="next" />
++/// <reference types="next/image-types/global" />
++
++// NOTE: This file should not be edited
++
+diff --git a/next.config.mjs b/next.config.mjs
+new file mode 100644
+index 0000000..0f539e2
+--- /dev/null
++++ b/next.config.mjs
+@@ -0,0 +1,22 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: root
++ * File: next.config.mjs
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: nextConfig
++ * Description: Next.js configuration tailored for the Pages Router application scaffold.
++ */
++
++/** @type {import('next').NextConfig} */
++const nextConfig = {
++  reactStrictMode: true,
++  swcMinify: true,
++  experimental: {
++    appDir: false
++  }
++};
++
++export default nextConfig;
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..829e7eb
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,32 @@
++{
++  "name": "codex-user-profile-nextjs",
++  "version": "0.1.0",
++  "description": "Scalable Next.js Pages Router application scaffold with services and testing.",
++  "scripts": {
++    "dev": "next dev",
++    "build": "next build",
++    "start": "next start",
++    "lint": "next lint",
++    "test": "jest"
++  },
++  "dependencies": {
++    "next": "14.2.5",
++    "react": "18.3.1",
++    "react-dom": "18.3.1"
++  },
++  "devDependencies": {
++    "@testing-library/jest-dom": "6.4.2",
++    "@testing-library/react": "14.3.1",
++    "@types/jest": "29.5.12",
++    "@types/node": "20.14.11",
++    "@types/react": "18.3.4",
++    "@types/react-dom": "18.3.0",
++    "@typescript-eslint/eslint-plugin": "8.4.0",
++    "@typescript-eslint/parser": "8.4.0",
++    "eslint": "8.57.0",
++    "eslint-config-next": "14.2.5",
++    "jest": "29.7.0",
++    "jest-environment-jsdom": "29.7.0",
++    "typescript": "5.5.4"
++  }
++}
+diff --git a/src/components/HomePageView.tsx b/src/components/HomePageView.tsx
+new file mode 100644
+index 0000000..31267d7
+--- /dev/null
++++ b/src/components/HomePageView.tsx
+@@ -0,0 +1,47 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: components
++ * File: HomePageView.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: HomePageView
++ * Description: Presentational component rendering the landing page summary information.
++ */
++
++import type { HomeSummary } from '@/services/homeService';
++
++interface HomePageViewProps {
++  readonly summary: HomeSummary;
++}
++
++export function HomePageView({ summary }: HomePageViewProps) {
++  return (
++    <section className="space-y-6">
++      <div className="rounded-lg bg-white p-8 shadow">
++        <h2 className="text-2xl font-semibold">{summary.title}</h2>
++        <p className="mt-2 text-lg text-slate-600">{summary.tagline}</p>
++      </div>
++      <dl className="grid gap-4 md:grid-cols-3">
++        <StatCard label="Users" value={summary.stats.users.toLocaleString()} />
++        <StatCard label="Projects" value={summary.stats.projects.toLocaleString()} />
++        <StatCard label="Uptime" value={summary.stats.uptime} />
++      </dl>
++    </section>
++  );
++}
++
++interface StatCardProps {
++  readonly label: string;
++  readonly value: string;
++}
++
++function StatCard({ label, value }: StatCardProps) {
++  return (
++    <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
++      <dt className="text-sm font-medium uppercase tracking-wide text-slate-500">{label}</dt>
++      <dd className="mt-2 text-2xl font-semibold text-slate-900">{value}</dd>
++    </div>
++  );
++}
+diff --git a/src/components/Layout.tsx b/src/components/Layout.tsx
+new file mode 100644
+index 0000000..46dbeb1
+--- /dev/null
++++ b/src/components/Layout.tsx
+@@ -0,0 +1,36 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: components
++ * File: Layout.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: Layout
++ * Description: Presentational layout component providing base page structure.
++ */
++
++import type { ReactNode } from 'react';
++
++interface LayoutProps {
++  readonly title: string;
++  readonly children: ReactNode;
++}
++
++export function Layout({ title, children }: LayoutProps) {
++  return (
++    <div className="min-h-screen bg-slate-50 text-slate-900">
++      <header className="border-b border-slate-200 bg-white py-6 shadow-sm">
++        <div className="mx-auto w-full max-w-5xl px-4">
++          <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
++        </div>
++      </header>
++      <main className="mx-auto w-full max-w-5xl px-4 py-8">{children}</main>
++      <footer className="border-t border-slate-200 bg-white py-4">
++        <div className="mx-auto w-full max-w-5xl px-4 text-sm text-slate-500">
++          Built with the Next.js Scalable Pages Router pattern.
++        </div>
++      </footer>
++    </div>
++  );
++}
+diff --git a/src/components/ProductDetailView.tsx b/src/components/ProductDetailView.tsx
+new file mode 100644
+index 0000000..097d0d7
+--- /dev/null
++++ b/src/components/ProductDetailView.tsx
+@@ -0,0 +1,34 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: components
++ * File: ProductDetailView.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: ProductDetailView
++ * Description: Presentational component displaying a single product detail.
++ */
++
++import type { ProductSummary } from '@/services/catalogService';
++
++interface ProductDetailViewProps {
++  readonly product: ProductSummary;
++}
++
++export function ProductDetailView({ product }: ProductDetailViewProps) {
++  return (
++    <article className="space-y-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
++      <header>
++        <h2 className="text-2xl font-semibold text-slate-900">{product.name}</h2>
++        <p className="mt-2 text-slate-600">{product.description}</p>
++      </header>
++      <div className="text-lg font-medium text-indigo-600">${product.price.toFixed(2)}</div>
++      <img
++        alt={product.name}
++        src={product.imageUrl}
++        className="h-64 w-full rounded-md object-cover"
++      />
++    </article>
++  );
++}
+diff --git a/src/components/ProductListView.tsx b/src/components/ProductListView.tsx
+new file mode 100644
+index 0000000..b7e1fa5
+--- /dev/null
++++ b/src/components/ProductListView.tsx
+@@ -0,0 +1,41 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: components
++ * File: ProductListView.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: ProductListView
++ * Description: Presentational component rendering a grid of catalog products.
++ */
++
++import type { ProductSummary } from '@/services/catalogService';
++
++interface ProductListViewProps {
++  readonly products: ProductSummary[];
++}
++
++export function ProductListView({ products }: ProductListViewProps) {
++  if (products.length === 0) {
++    return <p className="text-slate-600">No products are available yet. Check back soon.</p>;
++  }
++
++  return (
++    <ul className="grid gap-6 md:grid-cols-2">
++      {products.map((product) => (
++        <li key={product.id} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
++          <div className="flex items-start justify-between">
++            <div>
++              <h3 className="text-xl font-semibold text-slate-900">{product.name}</h3>
++              <p className="mt-2 text-slate-600">{product.description}</p>
++            </div>
++            <span className="ml-4 text-lg font-medium text-indigo-600">
++              ${product.price.toFixed(2)}
++            </span>
++          </div>
++        </li>
++      ))}
++    </ul>
++  );
++}
+diff --git a/src/components/ThemeToggle.tsx b/src/components/ThemeToggle.tsx
+new file mode 100644
+index 0000000..69e4912
+--- /dev/null
++++ b/src/components/ThemeToggle.tsx
+@@ -0,0 +1,28 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: components
++ * File: ThemeToggle.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: ThemeToggle
++ * Description: Presentational toggle used to switch application theme.
++ */
++
++interface ThemeToggleProps {
++  readonly theme: 'light' | 'dark';
++  readonly onToggle: () => void;
++}
++
++export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
++  return (
++    <button
++      type="button"
++      onClick={onToggle}
++      className="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-100"
++    >
++      Switch to {theme === 'light' ? 'dark' : 'light'} mode
++    </button>
++  );
++}
+diff --git a/src/containers/ThemeToggleContainer.tsx b/src/containers/ThemeToggleContainer.tsx
+new file mode 100644
+index 0000000..a1eb45b
+--- /dev/null
++++ b/src/containers/ThemeToggleContainer.tsx
+@@ -0,0 +1,23 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: containers
++ * File: ThemeToggleContainer.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: ThemeToggleContainer
++ * Description: Container component managing theme toggle interactions via the App context.
++ */
++
++import { ThemeToggle } from '@/components/ThemeToggle';
++import { useApp } from '@/store/AppContext';
++
++export function ThemeToggleContainer() {
++  const {
++    state: { theme },
++    dispatch
++  } = useApp();
++
++  return <ThemeToggle theme={theme} onToggle={() => dispatch({ type: 'toggleTheme' })} />;
++}
+diff --git a/src/hooks/useIsMounted.ts b/src/hooks/useIsMounted.ts
+new file mode 100644
+index 0000000..53c024e
+--- /dev/null
++++ b/src/hooks/useIsMounted.ts
+@@ -0,0 +1,26 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: hooks
++ * File: useIsMounted.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: useIsMounted
++ * Description: React hook that identifies when a component has mounted on the client.
++ */
++
++import { useEffect, useRef } from 'react';
++
++export function useIsMounted(): boolean {
++  const isMounted = useRef(false);
++
++  useEffect(() => {
++    isMounted.current = true;
++    return () => {
++      isMounted.current = false;
++    };
++  }, []);
++
++  return isMounted.current;
++}
+diff --git a/src/lib/httpClient.ts b/src/lib/httpClient.ts
+new file mode 100644
+index 0000000..aca6d6a
+--- /dev/null
++++ b/src/lib/httpClient.ts
+@@ -0,0 +1,62 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: lib
++ * File: httpClient.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: ApiClientConfig, fetchJson
++ * Description: Lightweight HTTP client helper that wraps fetch with defaults and error handling.
++ */
++
++export interface ApiClientConfig {
++  readonly baseUrl: string;
++  readonly headers?: Record<string, string>;
++  readonly timeoutMs?: number;
++  readonly retry?: {
++    readonly attempts: number;
++    readonly backoffMs: number;
++  };
++}
++
++export async function fetchJson<T>(
++  input: string,
++  init: RequestInit = {},
++  config?: ApiClientConfig
++): Promise<T> {
++  const controller = new AbortController();
++  const timeout = config?.timeoutMs ?? 15000;
++  const timeoutId = setTimeout(() => controller.abort(), timeout);
++  const headers = { 'Content-Type': 'application/json', ...(config?.headers ?? {}), ...(init.headers ?? {}) };
++
++  const requestInit: RequestInit = {
++    ...init,
++    headers,
++    signal: controller.signal
++  };
++
++  const attempts = Math.max(config?.retry?.attempts ?? 0, 0) + 1;
++  const backoffMs = Math.max(config?.retry?.backoffMs ?? 0, 0);
++
++  let lastError: unknown;
++  for (let attempt = 0; attempt < attempts; attempt += 1) {
++    try {
++      const response = await fetch(input, requestInit);
++      if (!response.ok) {
++        throw new Error(`Request failed with status ${response.status}`);
++      }
++      const data = (await response.json()) as T;
++      clearTimeout(timeoutId);
++      return data;
++    } catch (error) {
++      lastError = error;
++      if (attempt < attempts - 1) {
++        await new Promise((resolve) => setTimeout(resolve, backoffMs));
++      }
++    }
++  }
++
++  clearTimeout(timeoutId);
++  throw lastError;
++}
+diff --git a/src/pages/404.tsx b/src/pages/404.tsx
+new file mode 100644
+index 0000000..f25d1c3
+--- /dev/null
++++ b/src/pages/404.tsx
+@@ -0,0 +1,27 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages
++ * File: 404.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default
++ * Description: Custom not found page displayed for unmatched routes.
++ */
++
++import Link from 'next/link';
++
++export default function NotFoundPage() {
++  return (
++    <div className="flex min-h-screen items-center justify-center bg-slate-50">
++      <div className="rounded-lg bg-white p-10 text-center shadow">
++        <h1 className="text-4xl font-semibold text-slate-900">404</h1>
++        <p className="mt-4 text-slate-600">We could not find the page you were looking for.</p>
++        <Link href="/" className="mt-6 inline-block text-indigo-600">
++          Return home
++        </Link>
++      </div>
++    </div>
++  );
++}
+diff --git a/src/pages/_app.tsx b/src/pages/_app.tsx
+new file mode 100644
+index 0000000..5fe344b
+--- /dev/null
++++ b/src/pages/_app.tsx
+@@ -0,0 +1,57 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages
++ * File: _app.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default
++ * Description: Custom App component providing global providers and an error boundary wrapper.
++ */
++
++import type { AppProps } from 'next/app';
++import { Component, type ErrorInfo, type ReactNode } from 'react';
++
++import { AppProvider } from '@/store/AppContext';
++
++class ErrorBoundary extends Component<{ readonly children: ReactNode }, { hasError: boolean }> {
++  public override state = { hasError: false };
++
++  public static getDerivedStateFromError() {
++    return { hasError: true };
++  }
++
++  public override componentDidCatch(error: Error, info: ErrorInfo) {
++    // eslint-disable-next-line no-console
++    console.error('Application error boundary caught an error:', error, info);
++  }
++
++  public override render() {
++    if (this.state.hasError) {
++      return (
++        <div className="flex min-h-screen items-center justify-center bg-slate-50">
++          <div className="rounded-lg bg-white p-8 text-center shadow">
++            <h1 className="text-2xl font-semibold text-slate-900">Something went wrong.</h1>
++            <p className="mt-2 text-slate-600">
++              Please refresh the page or contact support if the problem persists.
++            </p>
++          </div>
++        </div>
++      );
++    }
++
++    return this.props.children;
++  }
++}
++
++export default function MyApp({ Component: PageComponent, pageProps }: AppProps) {
++  return (
++    <ErrorBoundary>
++      <AppProvider>
++        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
++        <PageComponent {...pageProps} />
++      </AppProvider>
++    </ErrorBoundary>
++  );
++}
+diff --git a/src/pages/_error.tsx b/src/pages/_error.tsx
+new file mode 100644
+index 0000000..a1f0d53
+--- /dev/null
++++ b/src/pages/_error.tsx
+@@ -0,0 +1,39 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages
++ * File: _error.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default
++ * Description: Custom global error page providing fallback messaging for unhandled server errors.
++ */
++
++import type { NextPageContext } from 'next';
++
++interface ErrorPageProps {
++  readonly statusCode?: number;
++}
++
++function ErrorPage({ statusCode }: ErrorPageProps) {
++  return (
++    <div className="flex min-h-screen items-center justify-center bg-slate-50">
++      <div className="rounded-lg bg-white p-10 text-center shadow">
++        <h1 className="text-3xl font-semibold text-slate-900">Unexpected error</h1>
++        <p className="mt-4 text-slate-600">
++          {statusCode
++            ? `Our servers returned status ${statusCode}. Please try again later.`
++            : 'An error occurred on the client. Please refresh and try again.'}
++        </p>
++      </div>
++    </div>
++  );
++}
++
++ErrorPage.getInitialProps = ({ res, err }: NextPageContext) => {
++  const statusCode = res?.statusCode ?? err?.statusCode;
++  return { statusCode };
++};
++
++export default ErrorPage;
+diff --git a/src/pages/api/health.ts b/src/pages/api/health.ts
+new file mode 100644
+index 0000000..0126779
+--- /dev/null
++++ b/src/pages/api/health.ts
+@@ -0,0 +1,17 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages/api
++ * File: health.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default
++ * Description: Health check endpoint returning static status for monitoring.
++ */
++
++import type { NextApiRequest, NextApiResponse } from 'next';
++
++export default function handler(_req: NextApiRequest, res: NextApiResponse) {
++  res.status(200).json({ status: 'ok' });
++}
+diff --git a/src/pages/api/products/[id].ts b/src/pages/api/products/[id].ts
+new file mode 100644
+index 0000000..3eebb10
+--- /dev/null
++++ b/src/pages/api/products/[id].ts
+@@ -0,0 +1,27 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages/api
++ * File: products/[id].ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default
++ * Description: Mock API endpoint for fetching a single product from the catalog.
++ */
++
++import type { NextApiRequest, NextApiResponse } from 'next';
++
++import { catalog } from '@/pages/api/products';
++
++export default function handler(req: NextApiRequest, res: NextApiResponse) {
++  const { id } = req.query;
++  const product = catalog.find((item) => item.id === id);
++
++  if (!product) {
++    res.status(404).json({ message: 'Product not found' });
++    return;
++  }
++
++  res.status(200).json(product);
++}
+diff --git a/src/pages/api/products/index.ts b/src/pages/api/products/index.ts
+new file mode 100644
+index 0000000..3db37f7
+--- /dev/null
++++ b/src/pages/api/products/index.ts
+@@ -0,0 +1,43 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages/api
++ * File: products/index.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default, catalog
++ * Description: Mock API endpoint providing a list of products.
++ */
++
++import type { NextApiRequest, NextApiResponse } from 'next';
++
++const catalog = [
++  {
++    id: '1',
++    name: 'Ada Lovelace Tee',
++    description: 'Celebrate the first computer programmer with this soft tri-blend tee.',
++    price: 29.99,
++    imageUrl: 'https://images.example.com/products/ada.jpg'
++  },
++  {
++    id: '2',
++    name: 'Grace Hopper Hoodie',
++    description: 'Cozy hoodie featuring Admiral Hopper and her pioneering compiler work.',
++    price: 59.99,
++    imageUrl: 'https://images.example.com/products/grace.jpg'
++  },
++  {
++    id: '3',
++    name: 'Alan Turing Notebook',
++    description: 'Grid notebook inspired by the Enigma code breaker.',
++    price: 19.99,
++    imageUrl: 'https://images.example.com/products/turing.jpg'
++  }
++];
++
++export default function handler(_req: NextApiRequest, res: NextApiResponse) {
++  res.status(200).json(catalog);
++}
++
++export { catalog };
+diff --git a/src/pages/api/summary.ts b/src/pages/api/summary.ts
+new file mode 100644
+index 0000000..93638de
+--- /dev/null
++++ b/src/pages/api/summary.ts
+@@ -0,0 +1,25 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages/api
++ * File: summary.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default
++ * Description: Mock API endpoint delivering summary data for the home page.
++ */
++
++import type { NextApiRequest, NextApiResponse } from 'next';
++
++export default function handler(_req: NextApiRequest, res: NextApiResponse) {
++  res.status(200).json({
++    title: 'User Experience Platform',
++    tagline: 'Deliver personalized user profiles at scale with automated governance.',
++    stats: {
++      users: 12894,
++      projects: 362,
++      uptime: '99.99%'
++    }
++  });
++}
+diff --git a/src/pages/index.tsx b/src/pages/index.tsx
+new file mode 100644
+index 0000000..95d1983
+--- /dev/null
++++ b/src/pages/index.tsx
+@@ -0,0 +1,44 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages
++ * File: index.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default, getStaticProps
++ * Description: Landing page rendered via static generation using the home service for content.
++ */
++
++import type { GetStaticProps } from 'next';
++
++import { Layout } from '@/components/Layout';
++import { HomePageView } from '@/components/HomePageView';
++import { ThemeToggleContainer } from '@/containers/ThemeToggleContainer';
++import type { HomeSummary } from '@/services/homeService';
++import { getHomeSummary } from '@/services/homeService';
++
++interface HomePageProps {
++  readonly summary: HomeSummary;
++}
++
++export default function HomePage({ summary }: HomePageProps) {
++  return (
++    <Layout title="Next.js Scalable Starter">
++      <div className="mb-6 flex justify-end">
++        <ThemeToggleContainer />
++      </div>
++      <HomePageView summary={summary} />
++    </Layout>
++  );
++}
++
++export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
++  const summary = await getHomeSummary();
++  return {
++    props: {
++      summary
++    },
++    revalidate: 900
++  };
++};
+diff --git a/src/pages/products/[id].tsx b/src/pages/products/[id].tsx
+new file mode 100644
+index 0000000..2d91067
+--- /dev/null
++++ b/src/pages/products/[id].tsx
+@@ -0,0 +1,46 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages
++ * File: products/[id].tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default, getServerSideProps
++ * Description: Server-side rendered product detail page for personalized content.
++ */
++
++import type { GetServerSideProps } from 'next';
++
++import { Layout } from '@/components/Layout';
++import { ProductDetailView } from '@/components/ProductDetailView';
++import type { ProductSummary } from '@/services/catalogService';
++import { getProduct } from '@/services/catalogService';
++
++interface ProductDetailPageProps {
++  readonly product: ProductSummary;
++}
++
++export default function ProductDetailPage({ product }: ProductDetailPageProps) {
++  return (
++    <Layout title={product.name}>
++      <ProductDetailView product={product} />
++    </Layout>
++  );
++}
++
++export const getServerSideProps: GetServerSideProps<ProductDetailPageProps> = async ({ params }) => {
++  const productId = params?.id;
++  if (typeof productId !== 'string') {
++    return { notFound: true };
++  }
++
++  try {
++    const product = await getProduct(productId);
++    return { props: { product } };
++  } catch (error) {
++    // eslint-disable-next-line no-console
++    console.error('Failed to load product detail', error);
++    return { notFound: true };
++  }
++};
+diff --git a/src/pages/products/index.tsx b/src/pages/products/index.tsx
+new file mode 100644
+index 0000000..ca362a2
+--- /dev/null
++++ b/src/pages/products/index.tsx
+@@ -0,0 +1,38 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: pages
++ * File: products/index.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: default, getStaticProps
++ * Description: Products listing page statically generated with incremental revalidation.
++ */
++
++import type { GetStaticProps } from 'next';
++
++import { Layout } from '@/components/Layout';
++import { ProductListView } from '@/components/ProductListView';
++import type { ProductSummary } from '@/services/catalogService';
++import { listProducts } from '@/services/catalogService';
++
++interface ProductsPageProps {
++  readonly products: ProductSummary[];
++}
++
++export default function ProductsPage({ products }: ProductsPageProps) {
++  return (
++    <Layout title="Product Catalog">
++      <ProductListView products={products} />
++    </Layout>
++  );
++}
++
++export const getStaticProps: GetStaticProps<ProductsPageProps> = async () => {
++  const products = await listProducts();
++  return {
++    props: { products },
++    revalidate: 900
++  };
++};
+diff --git a/src/services/catalogService.ts b/src/services/catalogService.ts
+new file mode 100644
+index 0000000..0187bb1
+--- /dev/null
++++ b/src/services/catalogService.ts
+@@ -0,0 +1,32 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: services
++ * File: catalogService.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: ProductSummary, listProducts, getProduct
++ * Description: Product catalog service providing list and detail queries for pages.
++ */
++
++import { fetchJson } from '@/lib/httpClient';
++import { serviceConfig } from '@/services/config';
++
++export interface ProductSummary {
++  readonly id: string;
++  readonly name: string;
++  readonly description: string;
++  readonly price: number;
++  readonly imageUrl: string;
++}
++
++export async function listProducts(): Promise<ProductSummary[]> {
++  const url = `${serviceConfig.baseUrl}/api/products`;
++  return fetchJson<ProductSummary[]>(url, undefined, serviceConfig);
++}
++
++export async function getProduct(id: string): Promise<ProductSummary> {
++  const url = `${serviceConfig.baseUrl}/api/products/${id}`;
++  return fetchJson<ProductSummary>(url, undefined, serviceConfig);
++}
+diff --git a/src/services/config.ts b/src/services/config.ts
+new file mode 100644
+index 0000000..1eec4ba
+--- /dev/null
++++ b/src/services/config.ts
+@@ -0,0 +1,27 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: services
++ * File: config.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: serviceConfig
++ * Description: Shared configuration for service layer including base URL and retry strategy.
++ */
++
++import type { ApiClientConfig } from '@/lib/httpClient';
++
++const baseUrl = process.env.API_BASE ?? 'http://localhost:3000';
++
++export const serviceConfig: ApiClientConfig = {
++  baseUrl,
++  headers: {
++    Accept: 'application/json'
++  },
++  timeoutMs: 15000,
++  retry: {
++    attempts: 2,
++    backoffMs: 250
++  }
++};
+diff --git a/src/services/homeService.ts b/src/services/homeService.ts
+new file mode 100644
+index 0000000..2a51bcf
+--- /dev/null
++++ b/src/services/homeService.ts
+@@ -0,0 +1,29 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: services
++ * File: homeService.ts
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: HomeSummary, getHomeSummary
++ * Description: Service module responsible for retrieving data for the landing page.
++ */
++
++import { fetchJson } from '@/lib/httpClient';
++import { serviceConfig } from '@/services/config';
++
++export interface HomeSummary {
++  readonly title: string;
++  readonly tagline: string;
++  readonly stats: {
++    readonly users: number;
++    readonly projects: number;
++    readonly uptime: string;
++  };
++}
++
++export async function getHomeSummary(): Promise<HomeSummary> {
++  const url = `${serviceConfig.baseUrl}/api/summary`;
++  return fetchJson<HomeSummary>(url, undefined, serviceConfig);
++}
+diff --git a/src/store/AppContext.tsx b/src/store/AppContext.tsx
+new file mode 100644
+index 0000000..67bb98e
+--- /dev/null
++++ b/src/store/AppContext.tsx
+@@ -0,0 +1,60 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: store
++ * File: AppContext.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: AppProvider, useApp
++ * Description: React context providing global application state and actions.
++ */
++
++import type { Dispatch, ReactNode } from 'react';
++import { createContext, useContext, useReducer } from 'react';
++
++type Theme = 'light' | 'dark';
++
++interface AppState {
++  readonly theme: Theme;
++}
++
++interface ToggleThemeAction {
++  readonly type: 'toggleTheme';
++}
++
++type Action = ToggleThemeAction;
++
++interface AppContextValue {
++  readonly state: AppState;
++  readonly dispatch: Dispatch<Action>;
++}
++
++const AppContext = createContext<AppContextValue | undefined>(undefined);
++
++function reducer(state: AppState, action: Action): AppState {
++  if (action.type === 'toggleTheme') {
++    return {
++      ...state,
++      theme: state.theme === 'light' ? 'dark' : 'light'
++    };
++  }
++
++  return state;
++}
++
++const initialState: AppState = { theme: 'light' };
++
++export function AppProvider({ children }: { readonly children: ReactNode }) {
++  const [state, dispatch] = useReducer(reducer, initialState);
++  return <AppContext.Provider value={{ state, dispatch }}>{children}</AppContext.Provider>;
++}
++
++export function useApp(): AppContextValue {
++  const context = useContext(AppContext);
++  if (!context) {
++    throw new Error('useApp must be used within an AppProvider');
++  }
++
++  return context;
++}
+diff --git a/tests/components/ProductListView.test.tsx b/tests/components/ProductListView.test.tsx
+new file mode 100644
+index 0000000..c677217
+--- /dev/null
++++ b/tests/components/ProductListView.test.tsx
+@@ -0,0 +1,41 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: tests/components
++ * File: ProductListView.test.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: none
++ * Description: Ensures the product list view renders each product entry.
++ */
++
++import { render, screen } from '@testing-library/react';
++
++import { ProductListView } from '@/components/ProductListView';
++
++const products = [
++  {
++    id: '1',
++    name: 'Sample One',
++    description: 'First product',
++    price: 10,
++    imageUrl: 'https://example.com/1.jpg'
++  },
++  {
++    id: '2',
++    name: 'Sample Two',
++    description: 'Second product',
++    price: 20,
++    imageUrl: 'https://example.com/2.jpg'
++  }
++];
++
++describe('ProductListView', () => {
++  it('renders product names', () => {
++    render(<ProductListView products={products} />);
++
++    expect(screen.getByText('Sample One')).toBeInTheDocument();
++    expect(screen.getByText('Sample Two')).toBeInTheDocument();
++  });
++});
+diff --git a/tests/containers/ThemeToggleContainer.test.tsx b/tests/containers/ThemeToggleContainer.test.tsx
+new file mode 100644
+index 0000000..0510805
+--- /dev/null
++++ b/tests/containers/ThemeToggleContainer.test.tsx
+@@ -0,0 +1,31 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: tests/containers
++ * File: ThemeToggleContainer.test.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: none
++ * Description: Confirms the theme toggle container dispatches the toggle action.
++ */
++
++import { fireEvent, render, screen } from '@testing-library/react';
++
++import { ThemeToggleContainer } from '@/containers/ThemeToggleContainer';
++import { AppProvider } from '@/store/AppContext';
++
++describe('ThemeToggleContainer', () => {
++  it('toggles theme on click', () => {
++    render(
++      <AppProvider>
++        <ThemeToggleContainer />
++      </AppProvider>
++    );
++
++    const button = screen.getByRole('button');
++    fireEvent.click(button);
++
++    expect(button.textContent).toContain('light');
++  });
++});
+diff --git a/tests/pages/index.test.tsx b/tests/pages/index.test.tsx
+new file mode 100644
+index 0000000..3ca7722
+--- /dev/null
++++ b/tests/pages/index.test.tsx
+@@ -0,0 +1,36 @@
++/**
++ * App: Codex User Profile Next.js
++ * Package: tests/pages
++ * File: index.test.tsx
++ * Version: 0.1.0
++ * Turns: 1
++ * Author: Bobwares (bobwares@outlook.com)
++ * Date: 2025-10-04T01:34:07Z
++ * Exports: none
++ * Description: Verifies the home page renders summary data using static props.
++ */
++
++import { render, screen } from '@testing-library/react';
++
++import HomePage from '@/pages/index';
++import type { HomeSummary } from '@/services/homeService';
++
++const summary: HomeSummary = {
++  title: 'Test Title',
++  tagline: 'Test tagline',
++  stats: {
++    users: 10,
++    projects: 2,
++    uptime: '100%'
++  }
++};
++
++describe('HomePage', () => {
++  it('renders summary content', () => {
++    render(<HomePage summary={summary} />);
++
++    expect(screen.getByText('Test Title')).toBeInTheDocument();
++    expect(screen.getByText('Test tagline')).toBeInTheDocument();
++    expect(screen.getByText('10')).toBeInTheDocument();
++  });
++});
+diff --git a/tsconfig.json b/tsconfig.json
+new file mode 100644
+index 0000000..168c9e0
+--- /dev/null
++++ b/tsconfig.json
+@@ -0,0 +1,24 @@
++{
++  "compilerOptions": {
++    "target": "es2020",
++    "lib": ["dom", "dom.iterable", "es2020"],
++    "allowJs": false,
++    "skipLibCheck": true,
++    "strict": true,
++    "forceConsistentCasingInFileNames": true,
++    "noEmit": true,
++    "esModuleInterop": true,
++    "module": "esnext",
++    "moduleResolution": "bundler",
++    "resolveJsonModule": true,
++    "isolatedModules": true,
++    "jsx": "preserve",
++    "incremental": true,
++    "baseUrl": ".",
++    "paths": {
++      "@/*": ["src/*"]
++    }
++  },
++  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx"],
++  "exclude": ["node_modules"]
++}
+diff --git a/turns/index.csv b/turns/index.csv
+new file mode 100644
+index 0000000..c20e7f9
+--- /dev/null
++++ b/turns/index.csv
+@@ -0,0 +1,2 @@
++turnId,timestampUtc,task,branch,tag,headAfter,testsPassed,testsFailed,coverageDeltaPct
++1,2025-10-04T01:34:07Z,implement-nextjs-pattern,turn/1,turn/1,,0,0,0
