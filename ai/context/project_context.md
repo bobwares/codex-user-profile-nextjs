@@ -15,12 +15,6 @@
 ## Product Requirements Document
 open and read ./Customer_Registration_Wizard_PRD.md
 
-## Implementation Context
-
-open and read ./React_context.md
-open and read ./nextjs_context.md
-open and read ./TailwindCSS_context.md
-
 
 
 
