@@ -1,0 +1,30 @@
+/**
+ * App: Customer Registration
+ * Package: src/app
+ * File: globals.css
+ * Version: 0.1.0
+ * Turns: 1
+ * Author: Bobwares
+ * Date: 2025-10-05T19:19:36Z
+ * Exports: none
+ * Description: Global Tailwind base styles and CSS custom properties for the application.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+a {
+  @apply text-brand-600 underline-offset-4 transition-colors hover:text-brand-500;
+}
+
+button {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+}
