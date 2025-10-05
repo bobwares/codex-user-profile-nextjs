@@ -1,0 +1,21 @@
+{
+  "turnId": 1,
+  "timestampUtc": "2025-10-05T19:19:36Z",
+  "actor": {
+    "initiator": "user",
+    "agent": "gpt-5-codex"
+  },
+  "task": {
+    "name": "turn-1-bootstrap",
+    "inputs": [],
+    "parameters": {
+      "language": "typescript",
+      "framework": "nextjs",
+      "styling": "tailwind"
+    }
+  },
+  "artifacts": {
+    "changelog": "changelog.md",
+    "adr": "adr.md"
+  }
+}
