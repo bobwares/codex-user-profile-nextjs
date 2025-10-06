@@ -1,0 +1,58 @@
+{
+  "name": "customer-registration",
+  "version": "0.1.0",
+  "description": "Customer registration wizard built with Next.js App Router and Tailwind CSS.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "keywords": [
+    "nextjs",
+    "tailwind",
+    "customer-registration"
+  ],
+  "author": "gpt-5-codex",
+  "license": "MIT",
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": "^20.0.0",
+    "pnpm": "^10.5.2"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "classnames": "^2.5.1",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^15.0.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.4.1",
+    "@typescript-eslint/parser": "^8.4.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.5",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-testing-library": "^6.2.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.14",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}

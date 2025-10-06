@@ -1,0 +1,43 @@
+/**
+ * App: Customer Registration
+ * Package: app
+ * File: globals.css
+ * Version: 0.1.0
+ * Turns: 1
+ * Author: gpt-5-codex
+ * Date: 2025-10-05T23:29:09Z
+ * Exports: none
+ * Description: Global Tailwind CSS styles and design tokens for the app shell.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply min-h-screen bg-slate-50 text-slate-900 antialiased;
+}
+
+a {
+  @apply text-brand-600 underline-offset-4 hover:underline;
+}
+
+button {
+  @apply rounded-md bg-brand-600 px-4 py-2 text-white transition hover:bg-brand-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400;
+}
+
+input,
+select {
+  @apply w-full rounded-md border border-slate-300 px-3 py-2 text-base shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200;
+}
+
+label {
+  @apply text-sm font-medium text-slate-700;
+}
+
+main {
+  @apply mx-auto w-full max-w-4xl px-4 py-10;
+}

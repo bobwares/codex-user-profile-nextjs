@@ -1,0 +1,77 @@
+{
+  "turnId": 1,
+  "timestampUtc": "2025-10-05T23:29:09Z",
+  "task": {
+    "name": "execute-turn-1"
+  },
+  "artifacts": {
+    "changelog": "changelog.md",
+    "adr": "adr.md",
+    "manifest": "manifest.json"
+  },
+  "changes": {
+    "added": [
+      ".env.example",
+      ".eslintrc.json",
+      ".prettierrc.json",
+      "AGENTS.md",
+      "ai/agentic-pipeline/turns/index.csv",
+      "ai/agentic-pipeline/turns/turn-1/adr.md",
+      "ai/agentic-pipeline/turns/turn-1/changelog.md",
+      "ai/agentic-pipeline/turns/turn-1/session_context_values.md",
+      "changelog.md",
+      "jest.config.ts",
+      "jest.setup.ts",
+      "next-env.d.ts",
+      "next.config.ts",
+      "package.json",
+      "postcss.config.cjs",
+      "src/app/api/customers/route.ts",
+      "src/app/api/customers/verify-email/route.ts",
+      "src/app/api/customers/verify-phone/route.ts",
+      "src/app/api/geo/countries/route.ts",
+      "src/app/api/geo/regions/route.ts",
+      "src/app/api/health/route.ts",
+      "src/app/error.tsx",
+      "src/app/globals.css",
+      "src/app/layout.tsx",
+      "src/app/loading.tsx",
+      "src/app/not-found.tsx",
+      "src/app/page.tsx",
+      "src/app/register/account/page.tsx",
+      "src/app/register/actions.ts",
+      "src/app/register/address/page.tsx",
+      "src/app/register/details/page.tsx",
+      "src/app/register/layout.tsx",
+      "src/app/register/page.tsx",
+      "src/app/register/preferences/page.tsx",
+      "src/app/register/review/page.tsx",
+      "src/app/verify/email/page.tsx",
+      "src/app/verify/phone/page.tsx",
+      "src/components/layout/AnalyticsScript.tsx",
+      "src/components/ui/FormSection.tsx",
+      "src/components/ui/ProductList.tsx",
+      "src/components/ui/RegistrationProgress.tsx",
+      "src/lib/observability.ts",
+      "src/lib/registrationSchema.ts",
+      "src/lib/registrationSession.ts",
+      "src/services/catalog.ts",
+      "src/services/customers.ts",
+      "src/services/geo.ts",
+      "tailwind.config.ts",
+      "tests/app/page.test.tsx",
+      "tsconfig.jest.json",
+      "tsconfig.json"
+    ],
+    "modified": [
+      ".gitignore",
+      "README.md"
+    ],
+    "deleted": []
+  },
+  "metrics": {
+    "filesChanged": 54,
+    "linesAdded": 2048,
+    "linesDeleted": 2
+  }
+}
